@@ -6,6 +6,8 @@ The workshops introduces core machine learning concepts through practical exampl
 
 These workshops are designed to make foundational ML/AI concepts accessible to newcomers while hopefully facilitating a deeper understanding for experienced practitioners.
 
+Before our first session, please work through the README and make sure you can access and run the notebook under the `workshop0-setup` branch.
+
 ## How the Workshops Work
 
 Each workshop is structured around a guided notebook that serves as a shared reference point for discussion, experimentation, and collective reasoning during the session.
