@@ -12,11 +12,11 @@ import numpy as np
 def true_function(x: np.ndarray | float) -> np.ndarray:
     """Evaluate the fixed teaching target function.
 
-    The workshop uses a periodic signal so it is easy to see bias/variance
-    effects across hypothesis spaces and regularisation strengths.
+    The workshop uses a smooth solar-panel power curve so it is easy to see
+    bias/variance effects across hypothesis spaces and regularisation strengths.
     """
     x_array = np.asarray(x, dtype=float)
-    return np.sin(2.0 * np.pi * x_array)
+    return np.sin(np.pi * x_array) + 0.15 * np.sin(2.0 * np.pi * x_array)
 
 
 def _to_rng(seed: int | None, rng: np.random.Generator | None) -> np.random.Generator:

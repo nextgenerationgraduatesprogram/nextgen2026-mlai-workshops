@@ -25,8 +25,8 @@ def _format_axes(ax: plt.Axes, y_min=-1.5, y_max=1.5) -> None:
     ax.set_xlim(0.0, 1.0)
     ax.set_ylim(y_min, y_max)
     ax.grid(alpha=0.25, linewidth=0.8)
-    ax.set_xlabel("x")
-    ax.set_ylabel("y")
+    ax.set_xlabel("normalised panel tilt x")
+    ax.set_ylabel("normalised power output y")
 
 
 def plot_measurement_world(
@@ -47,14 +47,14 @@ def plot_measurement_world(
         color="#7a7a7a",
         linewidth=2.0,
         alpha=0.45,
-        label="true f(x)",
+        label="hidden power curve f*(x)",
     )
     ax_main.scatter(
         x_train,
         y_train,
         s=35,
         color="#1f77b4",
-        label="observed (x_i, y_i)",
+        label="observed tilt-power pairs",
         zorder=3,
     )
     if noise_std is not None:
@@ -67,7 +67,7 @@ def plot_measurement_world(
             va="top",
             fontsize=10,
         )
-    ax_main.set_title("Noisy Measurement World")
+    ax_main.set_title("Noisy Solar-Panel Measurement World")
     _format_axes(ax_main, y_min=-1.6, y_max=1.6)
     ax_main.legend(loc="upper right", frameon=False)
 
@@ -84,8 +84,8 @@ def plot_residual_histogram(
     residuals = y_train - data_mod.true_function(x_train)
     fig, ax = plt.subplots(figsize=(8.8, 4.8))
     ax.hist(residuals, bins=bins, color="#4c78a8", alpha=0.9, edgecolor="#ffffff")
-    ax.set_title("Observation residuals")
-    ax.set_xlabel("y - f(x)")
+    ax.set_title("Power-output residuals")
+    ax.set_xlabel("observed power - hidden power")
     ax.set_ylabel("count")
     ax.grid(alpha=0.15)
 
